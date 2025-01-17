@@ -78,13 +78,13 @@ export const SearchForm = () => {
                     {player.name}
                   </td>
                   <td className={"w-auto text-sm text-left p-2"}>
-                    {player.evpRating}
+                    {player.evpRating.toFixed(2)}
                   </td>
                   <td className={"w-auto text-sm text-left p-2"}>
-                    {player.ppd}
+                    {player.ppd.toFixed(2)}
                   </td>
                   <td className={"w-auto text-sm text-left p-2"}>
-                    {player.mpr}
+                    {player.mpr.toFixed(2)}
                   </td>
                 </tr>
               );
