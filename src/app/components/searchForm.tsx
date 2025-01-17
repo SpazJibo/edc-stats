@@ -36,10 +36,12 @@ export const SearchForm = () => {
         <div>
           <input
             name="search"
+            autoFocus
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Enter Name"
             className="m-5 p-2 text-slate-800"
             value={search}
+            tabIndex={0}
           />
           <button
             type="submit"
