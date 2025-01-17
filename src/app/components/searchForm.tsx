@@ -32,6 +32,7 @@ export const SearchForm = () => {
 
   return (
     <div className={"w-full"}>
+      <h1 className="mx-5">EDC Remote Stat Search</h1>
       <Form action={handleClick}>
         <div>
           <input
@@ -39,13 +40,13 @@ export const SearchForm = () => {
             autoFocus
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Enter Name"
-            className="m-5 p-2 text-slate-800"
+            className="mx-5 px-3 text-slate-800 focus:outline-none"
             value={search}
             tabIndex={0}
           />
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
+            className="bg-purple-500 hover:bg-purple-700 text-white font-bold px-2 border-purple-900 outline-none rounded"
           >
             Search
           </button>
@@ -53,25 +54,38 @@ export const SearchForm = () => {
       </Form>
 
       {loading ? (
-        <div>Loading....</div>
+        <div className="mx-5 my-5">Loading....</div>
       ) : (
-        <table className={"table-auto w-full"}>
-          <thead>
-            <tr>
-              <td className={"w-auto p-2"}>Player Name</td>
-              <td className={"w-auto p-2"}>EVP Rating</td>
-              <td className={"w-auto p-2"}>PPD</td>
-              <td className={"w-auto p-2"}>MPR</td>
+        <table
+          className={"table-auto w-full mx-3 my-5 border-gray-600 border-2"}
+        >
+          <thead className="bg-gradient-to-r from-purple-900 to-pink-400 text-white">
+            <tr className="font-bold">
+              <td className={"w-auto p-3"}>Player Name</td>
+              <td className={"w-auto p-3"}>EVP Rating</td>
+              <td className={"w-auto p-3"}>PPD</td>
+              <td className={"w-auto p-3"}>MPR</td>
             </tr>
           </thead>
           <tbody>
             {data?.map((player: IPlayer, index) => {
               return (
-                <tr key={index}>
-                  <td className={"w-auto p-2"}>{player.name}</td>
-                  <td className={"w-auto p-2"}>{player.evpRating}</td>
-                  <td className={"w-auto p-2"}>{player.ppd}</td>
-                  <td className={"w-auto p-2"}>{player.mpr}</td>
+                <tr
+                  key={index}
+                  className="even:bg-purple-200 odd:bg-gray-100 even:text-white-900 dark:text-gray-900"
+                >
+                  <td className={"w-auto text-sm text-left p-2"}>
+                    {player.name}
+                  </td>
+                  <td className={"w-auto text-sm text-left p-2"}>
+                    {player.evpRating}
+                  </td>
+                  <td className={"w-auto text-sm text-left p-2"}>
+                    {player.ppd}
+                  </td>
+                  <td className={"w-auto text-sm text-left p-2"}>
+                    {player.mpr}
+                  </td>
                 </tr>
               );
             })}
