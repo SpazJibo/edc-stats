@@ -37,6 +37,26 @@ export const SearchForm = () => {
     searchAction();
   };
 
+  const handleMin = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value;
+
+    const regex = /^[0-9]*\.?[0-9]*$/;
+
+    if (regex.test(inputValue)) {
+      setMinEvp(inputValue);
+    }
+  };
+
+  const handleMax = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = event.target.value;
+
+    const regex = /^[0-9]*\.?[0-9]*$/;
+
+    if (regex.test(inputValue)) {
+      setMaxEvp(inputValue);
+    }
+  };
+
   return (
     <div className={"w-full"}>
       <h1 className="mx-5">EDC Remote Stat Search</h1>
@@ -56,7 +76,7 @@ export const SearchForm = () => {
           <div className="mt-3 w-full">
             <input
               name="minEvp"
-              onChange={(e) => setMinEvp(e.target.value)}
+              onChange={handleMin}
               placeholder="Enter Minimum Evp Rating"
               className="mx-5 px-3 text-slate-800 focus:outline-none"
               value={minEvp}
@@ -66,7 +86,7 @@ export const SearchForm = () => {
           <div className="mt-3 w-full">
             <input
               name="maxEvp"
-              onChange={(e) => setMaxEvp(e.target.value)}
+              onChange={handleMax}
               placeholder="Enter Max Evp Rating"
               className="mx-5 px-3 text-slate-800 focus:outline-none"
               value={maxEvp}
