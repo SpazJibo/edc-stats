@@ -53,6 +53,7 @@ export const setPlayerData = async (data: string): Promise<IPlayer[]> => {
       }
     });
 
+    playerData.length = 0;
     playerData.push(...playerResults);
     creationDate = Date.now();
     return playerData;

@@ -64,6 +64,8 @@ export async function GET(req: Request) {
       " foundPlaysers: ",
       foundPlayers.length,
     );
+
+    console.log("!!! max min: ", foundPlayers?.length);
     const evpPlayers =
       foundPlayers.length > 0
         ? foundPlayers.filter((player) => {
@@ -82,6 +84,7 @@ export async function GET(req: Request) {
   }
 
   if (min) {
+    console.log("!!! min: ", foundPlayers?.length);
     const evpPlayers =
       foundPlayers.length > 0
         ? foundPlayers.filter((player) => {
@@ -98,6 +101,7 @@ export async function GET(req: Request) {
   }
 
   if (max) {
+    console.log("!!! max: ", foundPlayers?.length);
     const evpPlayers =
       foundPlayers.length > 0
         ? foundPlayers.filter((player) => {
